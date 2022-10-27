@@ -53,26 +53,9 @@ const SignIn = () => {
     setFormErrors(messageObject);
   };
 
-  // const handleValidation = () => {
-  //   let error = {};
-
-  //   if (!formFields.email) {
-  //     error.email = "Email is required!";
-  //     changeBorderColorOnError("email");
-  //   }
-
-  //   if (!formFields.password) {
-  //     error.password = "Password is required!";
-  //     changeBorderColorOnError("password");
-  //   }
-
-  //   return error;
-  // };
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    // console.log(formFields);
-    // setFormErrors(handleValidation());
+
     dispatch(loginUser(formFields));
   };
   return (

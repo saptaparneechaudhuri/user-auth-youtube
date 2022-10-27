@@ -24,7 +24,6 @@ const prodError = (res, err) => {
 };
 
 const handleValidationError = (error) => {
-  // let allErrors = Object.values(error.errors).map((e) => e.message);
   let allErrors = {};
 
   // store the errors as a key value pair
@@ -32,16 +31,12 @@ const handleValidationError = (error) => {
     return (allErrors[item.path] = item.message);
   });
 
-  // const message = `Invalid input: ${allErrors.join(" ")}`;
   const message = JSON.stringify(allErrors);
 
   return new AppError(message, 400);
 };
 
 const handleDuplicateFieldsError = (error) => {
-  // const message = "Duplicate field";
-  // return new AppError(message, 400);
-
   let allErrors = {};
 
   Object.keys(error.keyValue).forEach((item) => {

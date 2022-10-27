@@ -50,31 +50,6 @@ const SignUp = () => {
     formInput.classList.add("error");
   };
 
-  // const handleValidation = () => {
-  //   let error = {};
-
-  //   if (!formFields.name) {
-  //     error.name = "Name is required!";
-  //     changeBorderColorOnError("name");
-  //   }
-  //   if (!formFields.email) {
-  //     error.email = "Email is required!";
-  //     changeBorderColorOnError("email");
-  //   }
-
-  //   if (!formFields.password) {
-  //     error.password = "Password is required!";
-  //     changeBorderColorOnError("password");
-  //   }
-
-  //   if (!formFields.confirmPassword) {
-  //     error.confirmPassword = "Confirm your password!";
-  //     changeBorderColorOnError("confirmPassword");
-  //   }
-
-  //   return error;
-  // };
-
   const hanldeInputValueChange = (event) => {
     const { name, value } = event.target;
     setFormFields({ ...formFields, [name]: value });
@@ -82,7 +57,7 @@ const SignUp = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // setFormError(handleValidation());
+
     dispatch(registerUser(formFields));
   };
   return (
