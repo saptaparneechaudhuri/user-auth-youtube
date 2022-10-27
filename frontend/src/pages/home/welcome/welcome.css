@@ -1,0 +1,32 @@
+.welcome-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-header {
+  color: var(--color-header);
+  font-weight: 400;
+  font-size: 3rem;
+}
+
+.welcome-header span {
+  color: var(--color-red);
+  font-weight: 500;
+}
+
+.logout-button {
+  background-color: var(--color-header);
+  margin-left: 3rem;
+  border: none;
+  letter-spacing: 0.1rem;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  border-radius: 10rem;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 1s ease;
+}
