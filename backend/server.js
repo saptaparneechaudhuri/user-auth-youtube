@@ -33,17 +33,6 @@ const userRoutes = require("./routes/userRoutes");
 
 app.use(`/api/v1/users`, userRoutes);
 
-// handle unhandled routes
-app.all("*", (req, res, next) => {
-  // const err = new Error(`Can't find the route ${req.originalUrl}`);
-  // err.statusCode = 404;
-  // err.status = "fail";
-
-  // next(err);
-
-  next(new AppError(`Can't find the route ${req.originalUrl}`, 404));
-});
-
 // for deployment, add the path to the build folder in frontend.
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/build")));
@@ -56,6 +45,17 @@ if (process.env.NODE_ENV === "production") {
 } else {
   app.get("/", (req, res) => res.send("Please set  NODE_ENV to production"));
 }
+
+// handle unhandled routes
+app.all("*", (req, res, next) => {
+  // const err = new Error(`Can't find the route ${req.originalUrl}`);
+  // err.statusCode = 404;
+  // err.status = "fail";
+
+  // next(err);
+
+  next(new AppError(`Can't find the route ${req.originalUrl}`, 404));
+});
 
 // global error handler
 app.use(globalErrorController);
