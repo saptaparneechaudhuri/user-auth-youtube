@@ -2,6 +2,7 @@ const express = require("express");
 const morgan = require("morgan");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
+const path = require("path");
 
 // utils
 const AppError = require("./utils/appError");
@@ -42,6 +43,19 @@ app.all("*", (req, res, next) => {
 
   next(new AppError(`Can't find the route ${req.originalUrl}`, 404));
 });
+
+// for deployment, add the path to the build folder in frontend.
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../frontend/build")));
+
+  app.get("*", (req, res) =>
+    res.sendFile(
+      path.resolve(__dirname, "../", "frontend", "build", "index.html")
+    )
+  );
+} else {
+  app.get("/", (req, res) => res.send("Please set  NODE_ENV to production"));
+}
 
 // global error handler
 app.use(globalErrorController);
