@@ -26,7 +26,7 @@ if (process.env.NODE_ENV === "developement") {
   app.use(morgan("dev"));
 }
 
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 5001;
 
 //Routes
 const userRoutes = require("./routes/userRoutes");
