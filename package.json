@@ -11,7 +11,7 @@
     "client": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server:dev \" \"npm run client\"",
     "prod": "concurrently \"npm run server:prod \" \"npm run client\"",
-     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "author": "Saptaparnee",
   "license": "ISC",
@@ -23,6 +23,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.6.5",
     "morgan": "^1.10.0",
+    "nodemailer": "^6.8.0",
     "nodemon": "^2.0.20",
     "validator": "^13.7.0"
   }
