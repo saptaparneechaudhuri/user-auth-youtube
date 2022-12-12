@@ -1,5 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { registerUser, loginUser } from "./authActions";
+import {
+  registerUser,
+  loginUser,
+  forgotPassword,
+  resetPassword,
+} from "./authActions";
 
 // Get user from the local storage
 const user = JSON.parse(localStorage.getItem("user"));
@@ -22,6 +27,11 @@ export const authSlice = createSlice({
       state.error = false;
       state.message = false;
     },
+    googleLogIn: (state, action) => {
+      state.user = action.payload;
+      state.success = true;
+    },
+
     logout: (state) => {
       localStorage.removeItem("user");
       state.loading = false;
@@ -60,10 +70,37 @@ export const authSlice = createSlice({
         state.error = true;
         state.user = null;
         state.message = action.payload;
+      })
+      .addCase(forgotPassword.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(forgotPassword.fulfilled, (state, action) => {
+        state.loading = false;
+        state.success = true;
+        state.message = action.payload;
+      })
+      .addCase(forgotPassword.rejected, (state, action) => {
+        state.loading = false;
+        state.error = true;
+        state.message = action.payload;
+      })
+      .addCase(resetPassword.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(resetPassword.fulfilled, (state, action) => {
+        state.loading = false;
+        state.success = true;
+        state.user = action.payload;
+      })
+      .addCase(resetPassword.rejected, (state, action) => {
+        state.loading = false;
+        state.error = true;
+        state.user = null;
+        state.message = action.payload;
       });
   },
 });
 
-export const { reset, logout } = authSlice.actions;
+export const { reset, logout, googleLogIn } = authSlice.actions;
 
 export default authSlice.reducer;

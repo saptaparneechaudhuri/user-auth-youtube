@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 //REdux
 import { useSelector, useDispatch } from "react-redux";
-import { reset } from "../../features/auth/authSlice";
+import { googleLogIn, reset } from "../../features/auth/authSlice";
 import { loginUser } from "../../features/auth/authActions";
 
 const defaultFormFields = {
@@ -58,6 +58,7 @@ const SignIn = () => {
 
     dispatch(loginUser(formFields));
   };
+
   return (
     <section className="form-container">
       <h1 className="form-heading">Sign in</h1>
@@ -73,7 +74,6 @@ const SignIn = () => {
           />
           <span className="error-text">{formErrors.email}</span>
         </div>
-
         <div className="form-item" id="password">
           <label>Password</label>
           <input
@@ -85,10 +85,15 @@ const SignIn = () => {
           />
           <span className="error-text">{formErrors.password}</span>
         </div>
+        <div className="button-container">
+          <button className="form-button" type="submit">
+            Sign In
+          </button>
+        </div>
 
-        <button className="form-button" type="submit">
-          Sign In
-        </button>
+        <Link className="forgot-link" to="/forgot-password">
+          Forgot your password?
+        </Link>
       </form>
     </section>
   );

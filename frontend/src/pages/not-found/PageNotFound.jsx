@@ -12,7 +12,7 @@ const PageNotFound = () => {
           Welcome
         </Link>{" "}
         . Else{" "}
-        <Link className="link" to="/sign-in">
+        <Link className="link" to="/">
           Log In
         </Link>
       </p>

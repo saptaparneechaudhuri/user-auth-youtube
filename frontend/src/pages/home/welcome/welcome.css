@@ -20,6 +20,7 @@
 .logout-button {
   background-color: var(--color-header);
   margin-left: 3rem;
+  margin-right: 2rem;
   border: none;
   letter-spacing: 0.1rem;
   padding: 1rem 2rem;

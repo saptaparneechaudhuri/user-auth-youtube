@@ -1,0 +1,113 @@
+doctype html
+html
+
+head
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  meta(http-equiv='Content-Type' content='text/html; charset=UTF-8')
+  title Reset Password Email
+  link(rel='stylesheet', href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap")
+  style.
+  
+
+    :root {
+    --color-button: rgba(112, 142, 176, 0.4);
+    --color-label: rgba(39, 49, 120, 0.7);
+    --color-border: rgba(132, 152, 226, 0.4);
+    --color-header: rgba(39, 49, 120);
+    --color-red: #d74590;
+    --color-text: #849886;
+    --color-input-focus: #6650ef;
+    --color-error: #ff4d42;
+    --color-button-hover: #b4418b;
+    }
+
+    *,
+    *::before,
+    *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+
+        html {
+        font-size: 62.5%;
+        }
+
+        body {
+        font-family: "Roboto", sans-serif;
+
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        
+        }
+
+        .container {
+        width: 80%;
+        max-height: 80%;
+        margin-top: 10rem;
+        }
+
+        .email-header {
+        color: var(--color-header);
+        font-weight: 400;
+        font-size: 3rem;
+        margin-bottom: 10rem;
+        }
+        .email-text{
+            margin-top: 5rem;
+            font-weight: 300;
+            font-size: 2rem;
+        }
+
+        .email-button {
+        background-color: var(--color-red);
+        margin-top: 3rem;
+        width: 30%;
+        border: none;
+        letter-spacing: 0.1rem;
+        padding: 2rem 4rem;
+        text-transform: uppercase;
+        text-align: center;
+        text-decoration:none;
+        font-size: 1.4rem;
+
+        border-radius: 10rem;
+        color: #fff;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 1s ease;
+        }
+
+
+        
+
+        .email-button:hover {
+        background-color: var(--color-button-hover);
+        box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%),
+            0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+        }
+
+        @media only screen and (max-width: 900px) {
+        .email-heading {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .email-button {
+            margin-top: 1rem;
+            padding: 2rem 4rem;
+        }
+
+        .email-button a {
+            font-size: 1.3rem;
+        }
+        }
+
+body
+ section.container
+   header.email-header Hi #{name}!
+     p.email-text #{text}
+   
+   a.email-button(href=`${url}`) Reset Password

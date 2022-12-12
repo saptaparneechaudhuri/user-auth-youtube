@@ -6,6 +6,9 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout, reset } from "../../../features/auth/authSlice";
 
+// Google
+import { GoogleLogout } from "react-google-login";
+
 const WelcomePage = () => {
   const { user, error } = useSelector((state) => state.auth);
 
@@ -18,7 +21,7 @@ const WelcomePage = () => {
     }
 
     if (!user) {
-      navigate("/sign-in");
+      navigate("/");
     }
 
     return () => {
@@ -28,18 +31,20 @@ const WelcomePage = () => {
 
   const handleLogout = () => {
     dispatch(logout());
-    navigate("/sign-in");
+    navigate("/");
   };
 
-  const username = user ? user.data.user.name : null;
+  const username = user ? (user.name ? user.name : user.data.user.name) : null;
   return (
     <section className="welcome-container">
       <h1 className="welcome-header">
         Welcome <span>{username}!</span>
       </h1>
-      <button className="logout-button" onClick={handleLogout}>
-        Log Out
-      </button>
+      <div className="button-container">
+        <button className="logout-button" onClick={handleLogout}>
+          Log Out
+        </button>
+      </div>
     </section>
   );
 };

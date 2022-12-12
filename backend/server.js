@@ -10,6 +10,9 @@ const globalErrorController = require("./controllers/globalErrorController");
 
 const app = express();
 
+app.set("view engine", "pug");
+app.set("views", path.join(__dirname, "views"));
+
 dotenv.config({ path: "./config.env" });
 
 const DB = process.env.DATABASE_URI.replace(
@@ -27,6 +30,15 @@ if (process.env.NODE_ENV === "developement") {
 }
 
 const port = process.env.PORT || 5001;
+
+// Routes for pug templates
+app.get("/", (req, res) => {
+  res.render("emailTemplate", {
+    text: "Forgot password? Submit a new password and confirm password by clicking the button below",
+    user: "Saptaparnee",
+    url: "#",
+  });
+});
 
 //Routes
 const userRoutes = require("./routes/userRoutes");

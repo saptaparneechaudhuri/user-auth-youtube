@@ -13,17 +13,17 @@ const Home = () => {
       <div className="content-container">
         <header className="content-header">
           <div className="logo">CodeBrew</div>
-          {location.pathname === "/sign-in" ? (
+          {location.pathname === "/" ? (
             <p>
               Don't have an account?{" "}
-              <Link className="link" to="/">
+              <Link className="link" to="/sign-up">
                 Sign Up
               </Link>
             </p>
           ) : (
             <p>
               Already have an account?{" "}
-              <Link className="link" to="/sign-in">
+              <Link className="link" to="/">
                 Sign In
               </Link>
             </p>

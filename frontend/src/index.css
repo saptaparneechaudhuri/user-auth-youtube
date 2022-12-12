@@ -112,6 +112,28 @@ body {
   font-weight: 500;
   margin-top: 0.5rem;
 }
+.forgot-link {
+  margin-left: 20%;
+  font-size: 1.5rem;
+}
+
+.reset-password-container {
+  width: 20%;
+  margin: 20rem auto;
+}
+
+.message {
+  color: green;
+  font-size: 1.5rem;
+}
+
+.button-container {
+  display: flex;
+  /* background-color: red; */
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
 
 @media only screen and (max-width: 400px) {
   .form-heading {
